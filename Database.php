@@ -3,8 +3,6 @@
 class Database {
     public $connection;
 
-
-
     public function __construct($config,$username= '', $password= '') {
 
         dd('mysqli:' . http_build_query($config, '', ';')); // example.com?host=localhost&port=3306&dbname=learning-php ----> example.com?host=localhost;port=3306;dbname=learning-php
