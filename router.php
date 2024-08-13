@@ -1,6 +1,5 @@
 <?php
-
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+$routes = require ("./routes.php");
 
 
 //if ($uri === "/learning-php/lesson2/controllers/" || $uri === "/learning-php/lesson2/controllers/index.php") {
@@ -14,14 +13,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 //    echo "Page not found";
 //}
 
-
-$routes = [
-    '/'=>'lesson2/controller/index,php',
-    '/about'=>'lesson2/controllers/about.php',
-    '/notes'=>'lesson2/controllers/notes.php',
-    '/note'=>'lesson2/controllers/note.php',
-    '/contact'=>'lesson2/controllers/contact.php',
-];
 
 function routeToController($uri,$routes){
     if(array_key_exists($uri, $routes)) {
@@ -38,6 +29,7 @@ function abort($code=404){
 
     die();
 }
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 routeToController($uri,$routes);
 
 ?>
