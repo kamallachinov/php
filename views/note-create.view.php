@@ -11,15 +11,29 @@
                 <div class="col-span-full">
                     <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Body</label>
                     <div class="mt-2">
-                        <textarea id="body" name="body" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                        <textarea id="body" name="body" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <?= isset($_POST['body']) ? $_POST['body'] : '' ?>
+                        </textarea>
                     </div>
                 </div>
+
+                <?php if (isset($errors['body'])) : ?>
+                    <p class="text-red-500 text-sm mt-2">
+
+                        <?= $errors['body'] ?>
+                    </p>
+
+                <?php endif; ?>
+
+
 
                 <div class="col-span-full">
                     <div class="mt-2 flex items-center gap-x-3">
                         <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
                     </div>
                 </div>
+
+
 
             </form>
 
